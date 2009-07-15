@@ -1,0 +1,64 @@
+Benchmarking 01_horse.jpg ...
+Converting to PPM... Done: took 0.66s
+Dimensions: 2304x1536, 3.54 megapixels
+Tiling... Done: took 1.81s consuming 4.81MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 4.89s, mean framerate 20.45 FPS
+Zooming (warm)... Done: 100 frames took 3.78s, mean framerate 26.44 FPS
+Benchmarking 02_flower.jpg ...
+Converting to PPM... Done: took 0.70s
+Dimensions: 2304x1728, 3.98 megapixels
+Tiling... Done: took 1.91s consuming 4.49MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 4.76s, mean framerate 21.02 FPS
+Zooming (warm)... Done: 100 frames took 3.64s, mean framerate 27.44 FPS
+Benchmarking 03_bird.jpg ...
+Converting to PPM... Done: took 0.88s
+Dimensions: 1932x2580, 4.98 megapixels
+Tiling... Done: took 2.56s consuming 3.80MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 4.81s, mean framerate 20.78 FPS
+Zooming (warm)... Done: 100 frames took 3.74s, mean framerate 26.73 FPS
+Benchmarking 04_world_small.jpg ...
+Converting to PPM... Done: took 3.02s
+Dimensions: 5400x2700, 14.58 megapixels
+Tiling... Done: took 7.95s consuming 8.04MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 4.73s, mean framerate 21.13 FPS
+Zooming (warm)... Done: 100 frames took 3.54s, mean framerate 28.27 FPS
+Benchmarking 05_gorne.jpg ...
+Converting to PPM... Done: took 111.76s
+Dimensions: 11756x3009, 35.37 megapixels
+Tiling... Done: took 27.05s consuming 5.79MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 7.88s, mean framerate 12.69 FPS
+Zooming (warm)... Done: 100 frames took 3.28s, mean framerate 30.46 FPS
+Benchmarking 06_mscnt.jpg ...
+Converting to PPM... Done: took 802.82s
+Dimensions: 22194x3367, 74.73 megapixels
+Tiling... Done: took 68.04s consuming 18.54MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 9.55s, mean framerate 10.47 FPS
+Zooming (warm)... Done: 100 frames took 2.44s, mean framerate 41.04 FPS
+Benchmarking 07_kingsn.jpg ...
+Converting to PPM... Done: took 153.17s
+Dimensions: 20634x7751, 159.93 megapixels
+Tiling... Done: took 90.98s consuming 30.75MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 5.28s, mean framerate 18.93 FPS
+Zooming (warm)... Done: 100 frames took 3.44s, mean framerate 29.11 FPS
+Benchmarking 08_world_big.jpg ...
+Converting to PPM... Done: took 188.90s
+Dimensions: 21600x10800, 233.28 megapixels
+Tiling... Done: took 130.92s consuming 32.76MB RAM
+Viewport: 800x600
+Zoom amount: 5.0
+Zooming (cold)... Done: 100 frames took 5.54s, mean framerate 18.05 FPS
+Zooming (warm)... Done: 100 frames took 3.72s, mean framerate 26.85 FPS

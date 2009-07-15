@@ -1,0 +1,53 @@
+Create an SVGTileProvider class (to replace SVGMediaObject) to allow more
+efficient viewing of SVG images.
+
+Port PDFConverter to pypoppler-qt4 to allow conversion of PDF to SVG.
+See <http://www.rkblog.rk.edu.pl/w/p/rendering-pdf-files-pyqt4-pypoppler-qt4/>
+Build instructions:
+wget http://pyqt4-extrawidgets.googlecode.com/files/\
+pypoppler-qt4-20962-fixed.tar.gz \
+&& tar -zxvf pypoppler-qt4-20962-fixed.tar.gz && cd pypoppler-qt4/ \
+&& python configure.py && make && sudo make install
+
+Allow UI option to convert HTML to SVG rather than PNG.
+
+Abstract file conversion routines out of TiledMediaObject into a global
+threaded conversion manager. This would also fix the bug that an image is
+converted twice if a second instance is added to the scene before the first has
+finished converting.
+
+Allow runtime configuration of TileCache size, and provide UI options for this.
+
+Rather than subclassing PPMTiler from Tiler create a PPMImage class, which has
+methods for loading and reading PPM images, to be passed into the constructor
+of Tiler.
+
+Port everything that uses PIL Image to use Tile instead.
+
+Smoothly fade in newly loaded tiles.
+
+Sometimes the WMS Global Mosaic service gets overloaded and responds with the
+following message:
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE ServiceExceptionReport SYSTEM
+  "http://wms.jpl.nasa.gov/exception_1_1_1.dtd ">
+<ServiceExceptionReport version="1.1.1">
+ <ServiceException>
+   Service denied due to system overload. Please try again later.
+ </ServiceException>
+</ServiceExceptionReport>
+This situation should be recognised and the user notified.
+
+Add a UI option to purge a specific media from the TileStore.
+
+A bug in ImageMagick:
+<http://imagemagick.org/discourse-server/viewtopic.php?p=30628#p30628>
+causes images in TIFF format (and possibly others) to be converted to P3 format
+PPM rather than P6 format. The former is not supported by PyZUI and hence
+causes a conversion error. A temporary solution to this is to manually convert
+the TIFF image to another format such as PNG or JPG before loading it into
+PyZUI.
+
+Dynamic media which has already been generated and cached currently must wait
+for media ahead of it to be generated. Loading of media that has already been
+cached should be prioritised above media that needs to be generated.

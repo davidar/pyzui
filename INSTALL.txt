@@ -1,0 +1,42 @@
+PyZUI INSTALLATION INSTRUCTIONS
+===============================
+PyZUI was developed under Ubuntu 8.10 Intrepid Ibex. It has also been tested on
+Ubuntu 9.04 Jaunty Jackalope.
+
+DEPENDENCIES
+============
+PyZUI depends on the following Python packages:
+- PyQt4
+- Python Imaging Library (PIL)
+
+These can be installed in Debian-based distributions by:
+  apt-get install python-qt4 python-imaging
+
+The following non-Python packages are also required by certain features of the
+application:
+- ImageMagick (highly recommended, but strictly optional if you do not intend
+  using images of any format other than PPM)
+- pdftoppm from Poppler or Xpdf (optional if you do not intend viewing PDFs);
+  Note that PyZUI has been developed using the pdftoppm binary provided by
+  Poppler
+- jrMandel (optional if you do not intend viewing the Mandelbrot set dynamic
+  media)
+
+ImageMagick can be installed in Debian-based distributions by:
+  apt-get install imagemagick
+
+pdftoppm can be installed in Debian-based distributions by either:
+  apt-get install poppler-utils
+or:
+  apt-get install xpdf-reader
+
+jrMandel can be downloaded from <http://freshmeat.net/projects/jrmandel/>,
+and installed with the standard:
+  ./configure && make && make install
+
+RUNNING PyZUI
+=============
+PyZUI can be run by executing the script 'main.py'. It is not necessary to run
+this from the command-line (unless you want to view the logging), and it can be
+run from any directory (the script will set the set the working directory
+appropriately by itself).

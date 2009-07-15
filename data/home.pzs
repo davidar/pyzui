@@ -1,0 +1,6 @@
+0.0	0.0	0.0
+TiledMediaObject	dynamic:fern	-0.4	-50.0	30.0
+StringMediaObject	string:64aa00:Py	0.75	95.0	40.0
+StringMediaObject	string:ffffff:ZUI	0.75	160.0	40.0
+StringMediaObject	string:64aa00:0.1	-2.0	250.0	50.0
+StringMediaObject	string:64aa00:%C2%A9%202009%20David%20Roberts	-3.5	162.0	92.0
