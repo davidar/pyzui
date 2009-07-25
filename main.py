@@ -32,12 +32,12 @@ def main():
         os.chdir(os.path.dirname(__file__))
 
     logging.basicConfig(level=logging.DEBUG)
-    TileManager.init(512)
+    TileManager.init()
 
     app = QtGui.QApplication(sys.argv)
     app.setWindowIcon(QtGui.QIcon(os.path.join("data", "icon.png")))
 
-    window = MainWindow(framerate=25)
+    window = MainWindow()
     window.show()
 
     sys.exit(app.exec_())

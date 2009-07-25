@@ -1,7 +1,7 @@
 PyZUI INSTALLATION INSTRUCTIONS
 ===============================
 PyZUI was developed under Ubuntu 8.10 Intrepid Ibex. It has also been tested on
-Ubuntu 9.04 Jaunty Jackalope.
+Ubuntu 9.04 Jaunty Jackalope and Windows XP.
 
 DEPENDENCIES
 ============
@@ -9,23 +9,23 @@ PyZUI depends on the following Python packages:
 - PyQt4
 - Python Imaging Library (PIL)
 
-These can be installed in Debian-based distributions by:
-  apt-get install python-qt4 python-imaging
-
 The following non-Python packages are also required by certain features of the
 application:
 - ImageMagick (highly recommended, but strictly optional if you do not intend
-  using images of any format other than PPM)
+  using images of any format other than PPM; the absence of ImageMagick may
+  also break other parts of the application as well)
 - pdftoppm from Poppler or Xpdf (optional if you do not intend viewing PDFs);
   Note that PyZUI has been developed using the pdftoppm binary provided by
   Poppler
 - jrMandel (optional if you do not intend viewing the Mandelbrot set dynamic
   media)
 
-ImageMagick can be installed in Debian-based distributions by:
-  apt-get install imagemagick
+UBUNTU/DEBIAN SPECIFIC INSTRUCTIONS
+===================================
+PyQt4, PIL and ImageMagick can be installed in Debian-based distributions by:
+  apt-get install python-qt4 python-imaging imagemagick
 
-pdftoppm can be installed in Debian-based distributions by either:
+pdftoppm can be installed by either:
   apt-get install poppler-utils
 or:
   apt-get install xpdf-reader
@@ -34,9 +34,34 @@ jrMandel can be downloaded from <http://freshmeat.net/projects/jrmandel/>,
 and installed with the standard:
   ./configure && make && make install
 
+WINDOWS SPECIFIC INSTRUCTIONS
+=============================
+PyQt4, PIL and ImageMagick can be installed in Windows by downloading and
+running the installers available from their respective websites:
+- http://riverbankcomputing.co.uk/software/pyqt/download
+- http://pythonware.com/products/pil/
+- http://imagemagick.org/script/binary-releases.php#windows
+
+Due to a conflict between the the 'convert.exe' provided by ImageMagick and
+that provided by Windows NT/2000/XP (see
+<http://savage.net.au/ImageMagick/html/install-convert.html>), you will need to
+rename the 'convert.exe' provided by ImageMagick (in
+C:\Program Files\ImageMagick-XXXXXXXXX\) to 'imconvert.exe'.
+
+pdftoppm can be installed by downloading the Win32 binary zip archive from
+<http://foolabs.com/xpdf/download.html>, extracting it, and copying
+'pdftoppm.exe' to somewhere in your PATH (such as C:\WINDOWS\system32\).
+
+I haven't tried using jrMandel on Windows as it would need to be compiled from
+source with something like MSVC, and I'm not even sure it is supported on
+Windows.
+
 RUNNING PyZUI
 =============
 PyZUI can be run by executing the script 'main.py'. It is not necessary to run
 this from the command-line (unless you want to view the logging), and it can be
 run from any directory (the script will set the set the working directory
 appropriately by itself).
+
+In Windows just double-click on 'main.py'. If you don't want the logging window
+to be shown, rename it to 'main.pyw' first.

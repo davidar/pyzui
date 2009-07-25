@@ -51,3 +51,9 @@ PyZUI.
 Dynamic media which has already been generated and cached currently must wait
 for media ahead of it to be generated. Loading of media that has already been
 cached should be prioritised above media that needs to be generated.
+
+Sometimes QZUI thinks that the Alt-key is being held when it actually isn't,
+such as after Alt-Tab'ing in and out of the application - need to find a more
+robust method for determing whether the key is actually being held at the time.
+A temporary workaround is to tap the Alt-key when in the application if this
+bug occurs (the symptom is that zooming is much slower than usual).

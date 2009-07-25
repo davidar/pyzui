@@ -22,6 +22,7 @@ from __future__ import with_statement
 
 import subprocess
 import os
+import sys
 
 from converter import Converter
 import tilestore as TileStore
@@ -41,9 +42,14 @@ class MagickConverter(Converter):
 
 
     def run(self):
+        if sys.platform == 'win32':
+            convert_exe = 'imconvert'
+        else:
+            convert_exe = 'convert'
+        
         with TileStore.disk_lock:
             self._logger.debug("calling convert")
-            process = subprocess.Popen(['convert',
+            process = subprocess.Popen([convert_exe,
                 '-depth', str(self.bitdepth),
                 self._infile, self._outfile],
                 stdout=subprocess.PIPE,
@@ -54,7 +60,11 @@ class MagickConverter(Converter):
             self.error = "conversion failed with return code " \
                 "%d:\n%s" % (process.returncode, stdout)
             self._logger.error(self.error)
-            os.unlink(self._outfile)
+            try:
+                os.unlink(self._outfile)
+            except:
+                self.__logger.exception("unable to unlink temporary file "
+                    "'%s'" % self._outfile)
 
         self._progress = 1.0
 

@@ -23,7 +23,12 @@ import sha
 from threading import RLock
 
 ## set the default tilestore directory, this can be overridden if required
-tile_dir = os.path.join("~", ".pyzui", "tilestore")
+if 'APPDATA' in os.environ:
+    ## Windows
+    tile_dir = os.path.join(os.environ['APPDATA'], "pyzui", "tilestore")
+else:
+    ## Unix
+    tile_dir = os.path.join(os.path.expanduser('~'), ".pyzui", "tilestore")
 
 ## threads which intend performing disk-access-intensive activities should
 ## acquire this lock first to reduce stress on the disk
@@ -38,7 +43,7 @@ def get_media_path(media_id):
     get_media_path(string) -> string
     """
     media_hash = sha.new(media_id).hexdigest()
-    media_dir = os.path.join(os.path.expanduser(tile_dir), media_hash)
+    media_dir = os.path.join(tile_dir, media_hash)
     return media_dir
 
 

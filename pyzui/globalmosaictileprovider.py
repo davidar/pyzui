@@ -82,7 +82,8 @@ class GlobalMosaicTileProvider(DynamicTileProvider):
         query_string = urllib.urlencode(params)
         url = self.base_url + query_string
 
-        tmpfile = tempfile.mkstemp('.jpg')[1]
+        fd, tmpfile = tempfile.mkstemp('.jpg')
+        os.close(fd)
 
         self._logger.info("downloading %s", url)
         try:
@@ -127,7 +128,11 @@ class GlobalMosaicTileProvider(DynamicTileProvider):
                         tile_id, True, filext=self.filext)
                     tile.save(filename)
 
-        os.unlink(tmpfile)
+        try:
+            os.unlink(tmpfile)
+        except:
+            self._logger.exception("unable to unlink temporary file "
+                "'%s'" % tmpfile)
 
 
     def __process_tilelevel1(self, tile_id):

@@ -70,7 +70,8 @@ class TiledMediaObject(MediaObject):
             TileManager.load_tile((self._media_id, 0, 0, 0))
         else:
             self.__logger.info("need to tile media")
-            self.__tmpfile = tempfile.mkstemp('.ppm')[1]
+            fd, self.__tmpfile = tempfile.mkstemp('.ppm')
+            os.close(fd)
             if self._media_id.startswith('http://') or \
                self._media_id.lower().endswith('.html') or \
                self._media_id.lower().endswith('.htm'):
@@ -323,8 +324,16 @@ class TiledMediaObject(MediaObject):
             self.__logger.info("media loaded")
             self.__loaded = True
 
+            if self.__tiler:
+                ## destory tiler to close tmpfile (reqd to unlink on Windows)
+                self.__tiler = None
+
             if self.__tmpfile:
-                os.unlink(self.__tmpfile)
+                try:
+                    os.unlink(self.__tmpfile)
+                except:
+                    self.__logger.exception("unable to unlink temporary file "
+                        "'%s'" % self.__tmpfile)
 
             old_x1, old_y1 = self.topleft
             old_x2, old_y2 = self.bottomright

@@ -21,7 +21,7 @@
 from __future__ import with_statement
 
 import subprocess
-from tempfile import mkdtemp
+import tempfile
 import os
 import shutil
 
@@ -92,7 +92,7 @@ class PDFConverter(Converter):
 
     def run(self):
         with TileStore.disk_lock:
-            tmpdir = mkdtemp()
+            tmpdir = tempfile.mkdtemp()
             self._logger.info("calling pdftoppm")
             process = subprocess.Popen(['pdftoppm',
                 '-r', str(self.resolution),
@@ -106,7 +106,11 @@ class PDFConverter(Converter):
                 except Exception, e:
                     self.error = str(e)
                     self._logger.error(self.error)
-                    os.unlink(self._outfile)
+                    try:
+                        os.unlink(self._outfile)
+                    except:
+                        self.__logger.exception("unable to unlink temporary "
+                            "file '%s'" % self._outfile)
             else:
                 self.error = "conversion failed with return code %d:\n%s" % \
                     (process.returncode, stdout)

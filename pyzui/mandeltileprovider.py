@@ -61,7 +61,8 @@ class MandelTileProvider(DynamicTileProvider):
         x2 = x1 + tilesize_units
         y2 = y1 - tilesize_units
 
-        tmpfile = tempfile.mkstemp('.pgm')[1]
+        fd, tmpfile = tempfile.mkstemp('.pgm')
+        os.close(fd)
 
         bbox = "%f,%f:%f,%f" % (x1,y1,x2,y2)
         size = "%d,%d" % (self.tilesize,self.tilesize)
@@ -79,4 +80,8 @@ class MandelTileProvider(DynamicTileProvider):
             converter.start()
             converter.join() ## block until conversion finished
 
-        os.unlink(tmpfile)
+        try:
+            os.unlink(tmpfile)
+        except:
+            self.__logger.exception("unable to unlink temporary file "
+                "'%s'" % tmpfile)

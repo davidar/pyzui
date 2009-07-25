@@ -129,7 +129,11 @@ class WebKitConverter(Converter):
         else:
             self.error = "unable to load the page"
             self._logger.error(self.error)
-            os.unlink(self._outfile)
+            try:
+                os.unlink(self._outfile)
+            except:
+                self.__logger.exception("unable to unlink temporary file "
+                    "'%s'" % self._outfile)
 
         if self.__qapp is not None:
             self.__qapp.exit()
