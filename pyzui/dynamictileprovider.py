@@ -21,7 +21,7 @@ filesystem (abstract base class)."""
 
 import os
 
-import Image
+from PyQt4 import QtCore, QtGui
 
 from tileprovider import TileProvider
 import tilestore as TileStore
@@ -59,9 +59,7 @@ class DynamicTileProvider(TileProvider):
             self._load_dynamic(tile_id, filename)
 
         try:
-            tile = Image.open(filename)
-            tile.load()
-            return tile
+            return QtGui.QImage(filename)
         except Exception:
             self._logger.exception("error loading tile, "
                 "assuming it is unavailable")
