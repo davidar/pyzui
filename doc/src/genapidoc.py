@@ -1,5 +1,5 @@
 ## genapidoc.py - Generate LaTeX documentation for a Python package
-## Copyright (C) 2009  David Roberts <dvdr18@gmail.com>
+## Copyright (C) 2009  David Roberts <d@vidr.cc>
 ##
 ## This program is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License

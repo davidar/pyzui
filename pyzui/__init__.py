@@ -1,5 +1,5 @@
 ## PyZUI 0.1 - Python Zooming User Interface
-## Copyright (C) 2009  David Roberts <dvdr18@gmail.com>
+## Copyright (C) 2009  David Roberts <d@vidr.cc>
 ##
 ## This program is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License
@@ -16,10 +16,13 @@
 ## Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ## 02110-1301, USA.
 
-"""PyZUI is a Zooming User Interface for Python."""
+"""
+PyZUI is a Zooming User Interface for Python.
+<http://da.vidr.cc/projects/pyzui/>
+"""
 
 __author__ = "David Roberts"
-__copyright__ = "Copyright (C) 2009  David Roberts <dvdr18@gmail.com>"
+__copyright__ = "Copyright (C) 2009  David Roberts <d@vidr.cc>"
 __copyright_notice__ = """
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -40,7 +43,7 @@ __credits__ = ["David Roberts"]
 __license__ = "GPLv2"
 __version__ = "0.1"
 __maintainer__ = "David Roberts"
-__email__ = "dvdr18@gmail.com"
+__email__ = "d@vidr.cc"
 
 __all__ = [
     'converter',

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 ## PyZUI 0.1 - Python Zooming User Interface
-## Copyright (C) 2009  David Roberts <dvdr18@gmail.com>
+## Copyright (C) 2009  David Roberts <d@vidr.cc>
 ##
 ## This program is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License
