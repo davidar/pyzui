@@ -1,7 +1,7 @@
 PyZUI INSTALLATION INSTRUCTIONS
 ===============================
 PyZUI was developed under Ubuntu 8.10 Intrepid Ibex. It has also been tested on
-Ubuntu 9.04 Jaunty Jackalope and Windows XP.
+Ubuntu 9.04 Jaunty Jackalope, Ubuntu 9.10 Karmic Koala, and Windows XP.
 
 DEPENDENCIES
 ============
