@@ -19,7 +19,7 @@
 """Module for managing the disk-based tile storage facility."""
 
 import os
-import sha
+import hashlib
 from threading import RLock
 
 ## set the default tilestore directory, this can be overridden if required
@@ -42,7 +42,7 @@ def get_media_path(media_id):
 
     get_media_path(string) -> string
     """
-    media_hash = sha.new(media_id).hexdigest()
+    media_hash = hashlib.sha1(media_id).hexdigest()
     media_dir = os.path.join(tile_dir, media_hash)
     return media_dir
 
